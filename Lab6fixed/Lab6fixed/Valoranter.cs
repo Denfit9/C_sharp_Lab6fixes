@@ -30,12 +30,12 @@ namespace Lab6fixed
         public static double PlayerKD()
         {
             string kd;
-            double fullkd;
+            double FullKd;
             while (true)
             {
                 Console.WriteLine("\nEnter his K/D score   (ex. 2,43)");
                 kd = Console.ReadLine();
-                if (!double.TryParse(kd, out fullkd))
+                if (!double.TryParse(kd, out FullKd))
                 {
                     Console.Write("Try again\n ");
 
@@ -46,12 +46,12 @@ namespace Lab6fixed
                 }
                 else break;
             }
-            return fullkd;
+            return FullKd;
         }
 
         public static string RoleChoosing()
         {
-            string plrole = "";
+            string PlRole = "";
             char index;
             bool choice = false;
             Console.WriteLine("1 - awper \n2 - rifler\n3 - captain\n4 - support");
@@ -61,20 +61,20 @@ namespace Lab6fixed
                 switch (index)
                 {
                     case '1':
-                        plrole = Convert.ToString(TeamRole.awper);
+                        PlRole = Convert.ToString(TeamRole.awper);
                         choice = true;
                         break;
 
                     case '2':
-                        plrole = Convert.ToString(TeamRole.rifler);
+                        PlRole = Convert.ToString(TeamRole.rifler);
                         choice = true;
                         break;
                     case '3':
-                        plrole = Convert.ToString(TeamRole.captain);
+                        PlRole = Convert.ToString(TeamRole.captain);
                         choice = true;
                         break;
                     case '4':
-                        plrole = Convert.ToString(TeamRole.support);
+                        PlRole = Convert.ToString(TeamRole.support);
                         choice = true;
                         break;
                     default:
@@ -83,12 +83,12 @@ namespace Lab6fixed
                         break;
                 }
             }
-            return plrole;
+            return PlRole;
         }
         public void RoleChanger()
         {
             Console.WriteLine("1 - awper \n2 - rifler\n3 - captain\n4 - support");
-            string plrole = "";
+            string PlRole = "";
             char index;
             bool choice = false;
             index = Console.ReadKey().KeyChar;
@@ -97,20 +97,20 @@ namespace Lab6fixed
                 switch (index)
                 {
                     case '1':
-                        plrole = Convert.ToString(TeamRole.awper);
+                        PlRole = Convert.ToString(TeamRole.awper);
                         choice = true;
                         break;
 
                     case '2':
-                        plrole = Convert.ToString(TeamRole.rifler);
+                        PlRole = Convert.ToString(TeamRole.rifler);
                         choice = true;
                         break;
                     case '3':
-                        plrole = Convert.ToString(TeamRole.captain);
+                        PlRole = Convert.ToString(TeamRole.captain);
                         choice = true;
                         break;
                     case '4':
-                        plrole = Convert.ToString(TeamRole.support);
+                        PlRole = Convert.ToString(TeamRole.support);
                         choice = true;
                         break;
                     default:
@@ -119,17 +119,17 @@ namespace Lab6fixed
                         break;
                 }
             }
-            role = plrole;
+            role = PlRole;
         }
         public void KillDeathChanger()
         {
             string kd2;
-            double fullkd;
+            double FullKd;
             while (true)
             {
                 Console.WriteLine("Enter his new K/D score   (ex. 2,43)");
                 kd2 = Console.ReadLine();
-                if (!double.TryParse(kd2, out fullkd))
+                if (!double.TryParse(kd2, out FullKd))
                 {
                     Console.Write("Try again\n ");
 
@@ -140,10 +140,22 @@ namespace Lab6fixed
                 }
                 else break;
             }
-            kd = fullkd;
+            kd = FullKd;
         }
         public Valoranter()
         {
+            Console.WriteLine("Name of the player");
+            Name = Valoranter.LineCheck();
+            Console.WriteLine("Surname of the player:");
+            Surname = Valoranter.LineCheck();
+            Console.WriteLine("Age is");
+            Age = Valoranter.AgeCheck();
+            Console.WriteLine("Nationality is");
+            Nationality = LineCheck();
+            Console.WriteLine("His Id is");
+            Playerid = IdCheck();
+            Console.WriteLine("Player's nickname is");
+            Nickname = TeamNicknameLineCheck();
             role = RoleChoosing();
             kd = PlayerKD();
         }

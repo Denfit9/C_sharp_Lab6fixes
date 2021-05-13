@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab6fixed
 {
-    class Human : IComparer<Human>, IAlive
+    class Human : IComparable<Human>, IAlive
     {
         public void Laugh()
         {
@@ -27,6 +23,10 @@ namespace Lab6fixed
             Born = Year - age;
             Console.WriteLine("He was born around " + Born);
 
+        }
+        public int CompareTo(Human p)
+        {
+            return this.Age.CompareTo(p.Age);
         }
         protected string name;
         protected string surname;
@@ -72,21 +72,6 @@ namespace Lab6fixed
         {
             get { return condition; }
             set { condition = value; }
-        }
-        public int Compare(Human num1, Human num2)
-        {
-            if (num1.age > num2.age)
-            {
-                return 1;
-            }
-            else if (num1.age == num2.age)
-            {
-                return 0;
-            }
-            else
-            {
-                return -1;
-            }
         }
         public static string LineCheck()
         {
@@ -135,11 +120,11 @@ namespace Lab6fixed
         public static int AgeCheck()
         {
             string age;
-            int ageint;
+            int AgeInt;
             while (true)
             {
                 age = Console.ReadLine();
-                if (!int.TryParse(age, out ageint))
+                if (!int.TryParse(age, out AgeInt))
                 {
                     Console.Write("Try again\n ");
 
@@ -154,23 +139,23 @@ namespace Lab6fixed
                 }
                 else break;
             }
-            return ageint;
+            return AgeInt;
         }
         public static int IdCheck()
         {
-            string playerid;
-            int completeid;
+            string PlayerId;
+            int CompleteId;
             while (true)
             {
-                playerid = Console.ReadLine();
-                if (!int.TryParse(playerid, out completeid))
+                PlayerId = Console.ReadLine();
+                if (!int.TryParse(PlayerId, out CompleteId))
                 {
                     Console.Write("Try again\n ");
 
                 }
                 else break;
             }
-            return completeid;
+            return CompleteId;
         }
         public void ShowInfo()
         {
@@ -180,13 +165,13 @@ namespace Lab6fixed
         }
         public void NewAge()
         {
-            int age_new;
+            int AgeNew;
             Console.WriteLine("Enter new player's age:");
-            string age_new2;
+            string AgeNew2;
             while (true)
             {
-                age_new2 = Console.ReadLine();
-                if (!int.TryParse(age_new2, out age_new))
+                AgeNew2 = Console.ReadLine();
+                if (!int.TryParse(AgeNew2, out AgeNew))
                 {
                     Console.Write("Try again\n ");
 
@@ -201,17 +186,17 @@ namespace Lab6fixed
                 }
                 else break;
             }
-            age = age_new;
+            age = AgeNew;
         }
         public void NewId()
         {
-            int new_id;
+            int NewId;
             Console.WriteLine("Enter new player's id:");
-            string id_new;
+            string Id;
             while (true)
             {
-                id_new = Console.ReadLine();
-                if (!int.TryParse(id_new, out new_id))
+                Id = Console.ReadLine();
+                if (!int.TryParse(Id, out NewId))
                 {
                     Console.Write("Try again\n ");
 
@@ -219,7 +204,7 @@ namespace Lab6fixed
                 else break;
 
             }
-            playerid = new_id;
+            playerid = NewId;
         }
         public void NameChanger()
         {
@@ -240,19 +225,6 @@ namespace Lab6fixed
         }
         public Human()
         {
-
-            Console.WriteLine("Name of the player");
-            Name = Human.LineCheck();
-            Console.WriteLine("Surname of the player:");
-            Surname = Human.LineCheck();
-            Console.WriteLine("Age is");
-            Age = Human.AgeCheck();
-            Console.WriteLine("Nationality is");
-            Nationality = LineCheck();
-            Console.WriteLine("His Id is");
-            Playerid = IdCheck();
-            Console.WriteLine("Player's nickname is");
-            Nickname = TeamNicknameLineCheck();
         }
         public void Kill()
         {
@@ -268,4 +240,5 @@ namespace Lab6fixed
             Console.WriteLine("");
         }
     }
+
 }

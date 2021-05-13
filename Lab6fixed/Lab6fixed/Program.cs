@@ -13,21 +13,22 @@ namespace Lab6fixed
             bool close = false;
             bool cybersportsman = true;
             char task;
+            Human cs1 = new Human { Nickname = "f0rest", Age = 32, Nationality = "Swedish" };
+            Human cs2 = new Human { Nickname = "M0nesy", Age = 16, Nationality = "Ukranian" };
+            Human val1 = new Human { Nickname = "LarryBanks", Age = 15, Nationality = "Canadian" };
+            Human dot1 = new Human { Nickname = "Fear", Age = 33, Nationality = "American" };
             Console.Clear();
-
             if (cybersportsman == true)
             {
                 Console.Clear();
                 while (close == false)
                 {
-                    //Console.Clear();
                     Console.WriteLine("Choose human's game \n a- cs:go \n b - dota2 \n c - valorant \n d - just check program");
                     task = Console.ReadKey().KeyChar;
-
                     switch (task)
                     {
 
-                        case 'a': // cs:go
+                        case 'a':
                             Console.Clear();
                             Cser cser = new Cser();
                             Console.Clear();
@@ -35,7 +36,7 @@ namespace Lab6fixed
                             while (close == false)
                             {
                                 Console.WriteLine("\nwhat to do? \n 1 - Show info \n 2 - change id \n 3 - change age\n 4 - change nickname\n 5 - Change his role in team\n 6 - change his K/D score \n 7 - kill \n" +
-                                    " 8 - laugh\n 9 - tell a joke\n a - check his age\n p - punch\n s - sort titles\n c - close");
+                                    " 8 - laugh\n 9 - tell a joke\n a - check his age\n p - punch\n s - Compare age with other pro-players\n c - close");
                                 task = Console.ReadKey().KeyChar;
                                 switch (task)
                                 {
@@ -86,22 +87,14 @@ namespace Lab6fixed
                                         break;
                                     case 's':
                                         Console.Clear();
-                                        int[] titles = new int[3];
-                                        int year = 2017;
-                                        for (int i = 0; i <= 2; i++)
+                                        Human[] players = new Human[] { cs1,cs2,val1, dot1,cser };
+                                        Array.Sort(players);
+                                        Console.WriteLine("\n");
+                                        foreach (Human cs in players)
                                         {
-                                            Console.WriteLine("Enter number of titles in " + year);
-                                            titles[i] = Convert.ToInt32(Console.ReadLine());
-                                            year++;
+                                            Console.WriteLine($"{cs.Nickname} - {cs.Age} - {cs.Nationality}");
                                         }
-                                        Array.Sort(titles);
-                                        year = 2017;
-                                        Console.WriteLine("Sorted number of titles");
-                                        for (int i = 0; i <= 2; i++)
-                                        {
-                                            Console.Write(" " + titles[i]);
-                                            year++;
-                                        }
+                                        Console.WriteLine("As you can see there are players of any age here\n");
                                         break;
                                     case 'c':
                                         close = true;
@@ -112,7 +105,7 @@ namespace Lab6fixed
                                 }
                             }
                             break;
-                        case 'b': // dota
+                        case 'b': 
                             Console.Clear();
                             Doter doter = new Doter();
                             Console.Clear();
@@ -120,7 +113,7 @@ namespace Lab6fixed
                             while (close == false)
                             {
                                 Console.WriteLine("\nwhat to do? \n 1 - Show info \n 2 - change id \n 3 - change age\n 4 - change nickname\n 5 - Change his role in team\n 6 - change his K/D score \n 7 - kill \n" +
-                                    " 8 - laugh\n 9 - tell a joke\n a - check his age\n p - punch\n s - sort titles\n c - close");
+                                    " 8 - laugh\n 9 - tell a joke\n a - check his age\n p - punch\n s - Compare age with other pro-players\n c - close");
                                 task = Console.ReadKey().KeyChar;
                                 switch (task)
                                 {
@@ -167,22 +160,14 @@ namespace Lab6fixed
                                         break;
                                     case 's':
                                         Console.Clear();
-                                        int[] titles = new int[3];
-                                        int year = 2017;
-                                        for (int i = 0; i <= 2; i++)
+                                        Human[] players = new Human[] { cs1, cs2, val1, dot1, doter };
+                                        Array.Sort(players);
+                                        Console.WriteLine("\n");
+                                        foreach (Human dota in players)
                                         {
-                                            Console.WriteLine("Enter number of titles in " + year);
-                                            titles[i] = Convert.ToInt32(Console.ReadLine());
-                                            year++;
+                                            Console.WriteLine($"{dota.Nickname} - {dota.Age} - {dota.Nationality}");
                                         }
-                                        Array.Sort(titles);
-                                        year = 2017;
-                                        Console.WriteLine("Sorted number of titles");
-                                        for (int i = 0; i <= 2; i++)
-                                        {
-                                            Console.Write(" " + titles[i]);
-                                            year++;
-                                        }
+                                        Console.WriteLine("As you can see there are players of any age here\n");
                                         break;
                                     case 'p':
                                         Console.Clear();
@@ -197,7 +182,7 @@ namespace Lab6fixed
                                 }
                             }
                             break;
-                        case 'c': //valorant
+                        case 'c': 
                             Console.Clear();
                             Valoranter val = new Valoranter();
                             Console.Clear();
@@ -205,7 +190,7 @@ namespace Lab6fixed
                             while (close == false)
                             {
                                 Console.WriteLine("\nwhat to do? \n 1 - Show info \n 2 - change id \n 3 - change age\n 4 - change nickname\n 5 - Change his role in team\n 6 - change his K/D score \n 7 - kill \n" +
-                                     " 8 - laugh\n 9 - tell a joke\n a - check his age\n p - punch\n s - sort titles\n c - close");
+                                     " 8 - laugh\n 9 - tell a joke\n a - check his age\n p - punch\n s - Compare age with other pro-players\n c - close");
                                 task = Console.ReadKey().KeyChar;
                                 switch (task)
                                 {
@@ -252,22 +237,15 @@ namespace Lab6fixed
                                         break;
                                     case 's':
                                         Console.Clear();
-                                        int[] titles = new int[3];
-                                        int year = 2017;
-                                        for (int i = 0; i <= 2; i++)
+                                        Console.Clear();
+                                        Human[] players = new Human[] { cs1, cs2, val1, dot1, val };
+                                        Array.Sort(players);
+                                        Console.WriteLine("\n");
+                                        foreach (Human valr in players)
                                         {
-                                            Console.WriteLine("Enter number of titles in " + year);
-                                            titles[i] = Convert.ToInt32(Console.ReadLine());
-                                            year++;
+                                            Console.WriteLine($"{valr.Nickname} - {valr.Age} - {valr.Nationality}");
                                         }
-                                        Array.Sort(titles);
-                                        year = 2017;
-                                        Console.WriteLine("Sorted number of titles");
-                                        for (int i = 0; i <= 2; i++)
-                                        {
-                                            Console.Write(" " + titles[i]);
-                                            year++;
-                                        }
+                                        Console.WriteLine("As you can see there are players of any age here\n");
                                         break;
                                     case 'p':
                                         Console.Clear();
